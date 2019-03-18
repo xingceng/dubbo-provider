@@ -23,7 +23,7 @@ public interface ZhyService {
   //查询朝向
     HashMap<String,Object> queryMianxiang(Integer page, Integer rows);
   //查询房屋
-    HashMap<String,Object> queryFangwu(Integer page, Integer rows,Integer typeid);
+    HashMap<String,Object> queryFangwu(Integer typeid, Integer page, Integer rows);
 
     //新增房源
     void addHouse(House house);
