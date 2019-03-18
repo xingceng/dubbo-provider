@@ -1,0 +1,22 @@
+server:
+  servlet:
+    context-path: /1807
+  port: 8086
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.108:3306/house?serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    generate-ddl: false
+  mvc:
+    view:
+      suffix: ".jsp"
+      prefix: "/WEB-INF/"
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/1807a
