@@ -113,9 +113,11 @@ public class ZhyServiceImpl implements ZhyService {
     @Override
     public HashMap<String, Object> queryFangwu(Integer page, Integer rows,Integer typeid) {
         HashMap<String, Object> hashMap = new HashMap<>();
-        long total =zhyDao.queryHouseCount();
+        long total =zhyDao.queryHouseCount(typeid);
         int start=(page-1)*rows;
         List<House> list=zhyDao.queryHousePage(start,rows,typeid);
+        System.err.print(total);
+        System.err.print(start);
         hashMap.put("total",total);
         hashMap.put("rows",list);
         return hashMap;

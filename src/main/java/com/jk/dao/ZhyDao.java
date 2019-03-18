@@ -74,8 +74,8 @@ public interface ZhyDao {
     List<Mianxiang> queryMianxiangPage(@Param("start") int start, @Param("rows") Integer rows);
 
     //查询房屋个数
-    @Select("select count(*) from t_house ")
-    long queryHouseCount();
+    @Select("SELECT count(*) FROM t_house h,t_acreage a,t_louceng lc,t_louling ll,t_mianxiang m,t_privce p,t_unit u,t_yongtu yt,t_zhuangxiu z,t_circuit c where h.houseacreageid = a.`acreageid`and h.`housecircuitid`=c.`circuitid`and h.`houseloucengid`=lc.`loucengid`and h.`houseloulingid`=ll.`loulingid` and h.`housemianxiang`=m.`mianxiangid`and h.`housepriceid` =p.`priceid` and h.`houseunitid`=u.`unitid` and h.`houseyongtuid`=yt.`yongtuid`and h.`housezhuangxiuid`=z.`zhuangxiuid` and h.`housetype`=#{typeid} and h.`housestuts`=0 ")
+    long queryHouseCount(Integer typeid);
 
     //查询房屋分页
     @Select("SELECT h.*,a.`acreagename`," +
@@ -107,7 +107,7 @@ public interface ZhyDao {
             "and h.`housezhuangxiuid`=z.`zhuangxiuid` " +
             "and h.`housetype`=#{typeid} " +
             "and h.`housestuts`=0" +
-            " ORDER BY h.`housecount` DESC limit #{start},#{rows}")
+            "  limit #{start},#{rows}")
     List<House> queryHousePage(@Param("start") int start, @Param("rows") Integer rows,@Param("typeid") Integer typeid);
 
     //新增房源
