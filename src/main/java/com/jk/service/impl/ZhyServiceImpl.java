@@ -128,4 +128,34 @@ public class ZhyServiceImpl implements ZhyService {
     public void addHouse(House house) {
         zhyDao.addHouse(house);
     }
+
+    @Override
+    public HashMap<String, Object> querykehu(Integer page, Integer rows) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        long total =zhyDao.queryKehuCount();
+        int start=(page-1)*rows;
+        List<Kehu> list=zhyDao.queryKehuPage(start,rows);
+        hashMap.put("total",total);
+        hashMap.put("rows",list);
+        return hashMap;
+    }
+
+    @Override
+    public void addkehu(Kehu kehu) {
+        zhyDao.addkehu(kehu);
+    }
+
+    @Override
+    public void delt(Integer kehuid) {
+        zhyDao.delt(kehuid);
+    }
+
+
+
+
+
+    @Override
+    public List<Circuit> queryAreaByPid(Integer pid) {
+        return zhyDao.queryAreaByPid(pid);
+    }
 }
