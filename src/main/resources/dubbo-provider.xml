@@ -19,9 +19,15 @@
     <dubbo:service interface="com.jk.service.ZhyService" ref="zhyService" />
     <dubbo:service interface="com.jk.service.HouseRwjService" ref="rwjService" />
     <dubbo:service interface="com.jk.service.UserService" ref="lcbService" />
+    <dubbo:service interface="com.jk.service.HeService" ref="HeService" />
+    <dubbo:service interface="com.jk.service.TaskService" ref="TaskService" />
+    <dubbo:service interface="com.jk.service.ZylService" ref="zylService" />
     <!-- 和本地bean一样实现服务 -->
     <bean id="zhyService" class="com.jk.service.impl.ZhyServiceImpl" />
     <bean id="myService" class="com.jk.service.impl.LoginServiceImpl" />
     <bean id="rwjService" class="com.jk.service.impl.HouseRwjServiceImpl" />
     <bean id="lcbService" class="com.jk.service.impl.UserServiceImpl" />
+    <bean id="HeService" class="com.jk.service.impl.HeServiceImpl" />
+    <bean id="TaskService" class="com.jk.service.impl.TaskServiceImpl" />
+    <bean id="zylService" class="com.jk.service.impl.ZylServiceImpl" />
 </beans>
