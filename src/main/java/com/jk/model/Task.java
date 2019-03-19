@@ -10,6 +10,23 @@ public class Task implements Serializable {
     private Integer brokerid;
     private String phone;
     private String email;
+    private String hname;
+    private String brokername;
+    public String getHname() {
+        return hname;
+    }
+
+    public void setHname(String hname) {
+        this.hname = hname;
+    }
+
+    public String getBrokername() {
+        return brokername;
+    }
+
+    public void setBrokername(String brokername) {
+        this.brokername = brokername;
+    }
 
     public Integer getId() {
         return id;
