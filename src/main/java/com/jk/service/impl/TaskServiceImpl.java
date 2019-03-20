@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.jk.dao.TaskDao;
 import com.jk.model.HeTong;
 import com.jk.model.Task;
+import com.jk.model.TaskBack;
 import com.jk.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -42,10 +43,53 @@ public class TaskServiceImpl implements TaskService {
         HashMap<String, Object> hashMap = new HashMap<>();
         long total=taskDao.queryTaskCount(task);
         int start=(page-1)*rows;
-        List<Task> list=taskDao.queryHeTong(start,rows,task);
+        List<Task> list=taskDao.queryTaskList(start,rows,task);
         hashMap.put("total",total);
         hashMap.put("rows",list);
         return hashMap;
     }
+
+    @Override
+    public HashMap<String, Object> queryMyTask(Integer page, Integer rows, Integer userid, Task task) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        long total=taskDao.queryMyTaskCount(userid,task);
+        int start=(page-1)*rows;
+        List<Task> list=taskDao.queryMyTaskList(start,rows,task,userid);
+        hashMap.put("total",total);
+        hashMap.put("rows",list);
+        return hashMap;
+    }
+
+    @Override
+    public void addTaskBask(TaskBack taskBack) {
+        Integer select = taskBack.getSelect();
+        Integer taskid = taskBack.getTaskid();
+        Integer hid=taskDao.queryTaskByIdIsHeTongId(taskid);
+        if(select==1){
+            taskDao.updateHeTongDate(hid,Integer.parseInt(taskBack.getDeadline()));
+
+        }else{
+            taskDao.updateHeTong(1,hid);
+        }
+        taskDao.updateTask(taskid);
+        taskDao.addTaskBack(taskBack);
+    }
+
+    @Override
+    public HashMap<String, Object> queryTaskBack(Integer page, Integer rows, TaskBack taskBack) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        long total=taskDao.queryTaskBackCount(taskBack);
+        int start=(page-1)*rows;
+        List<TaskBack> list=taskDao.queryTaskBackList(start,rows,taskBack);
+        hashMap.put("total",total);
+        hashMap.put("rows",list);
+        return hashMap;
+    }
+
+    @Override
+    public void delTaskBack(Integer id) {
+        taskDao.delTaskBack(id);
+    }
+
 
 }

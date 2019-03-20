@@ -1,8 +1,10 @@
 package com.jk.dao;
 
 import com.jk.model.HeTong;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -25,4 +27,7 @@ public interface HeDao {
             +"LIMIT #{start},#{rows}"
             + "</script>")
     List<HeTong> queryHeTong(@Param("start") int start,@Param("rows") Integer rows,@Param("heTong") HeTong heTong);
+
+    @Delete("delete from  z_hetong where id=#{id}")
+    void delheTong(Integer id);
 }
