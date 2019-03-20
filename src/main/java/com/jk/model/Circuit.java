@@ -1,6 +1,7 @@
 package com.jk.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Circuit implements Serializable {
     private static final long serialVersionUID = 8961136574144853231L;

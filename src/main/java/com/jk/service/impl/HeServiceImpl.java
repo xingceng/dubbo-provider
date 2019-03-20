@@ -32,4 +32,13 @@ public class HeServiceImpl implements HeService {
         hashMap.put("rows",list);
         return hashMap;
     }
+
+    /**
+     * 合同删除
+     * @param id
+     */
+    @Override
+    public void delheTong(Integer id) {
+        heDao.delheTong(id);
+    }
 }

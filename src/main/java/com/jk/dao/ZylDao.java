@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ZylDao {
 
-    //=========================================================================
+
     //网站用户看房
     @Select("<script>"
             + "select count(*) from z_userapply ua left join t_house h on ua.hid=h.houseid left join t_broker b on ua.brokerid=b.id "
