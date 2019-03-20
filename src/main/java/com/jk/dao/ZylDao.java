@@ -1,9 +1,6 @@
 package com.jk.dao;
 
-import com.jk.model.Broker;
-import com.jk.model.House;
-import com.jk.model.LookHouse;
-import com.jk.model.UserApply;
+import com.jk.model.*;
 import org.apache.ibatis.annotations.*;
 
 
@@ -125,4 +122,27 @@ public interface ZylDao {
 
     @Delete("delete from z_lookhouse where id=#{ids}")
     void deleteLookHouse(String ids);
+    //==============================================================
+    @Select("<script>"
+            + "select count(*) from z_buyhouse b left join z_knowledge k on b.kid=k.id "
+            + " WHERE 1=1"
+            + "<if test='b.title!=null'>"
+            + "and b.title = '${b.title}%'"
+            + "</if>"
+            + "</script>")
+    long queryBuycount(@Param("b") BuyHouse b);
+    @Select("<script>"
+            + "select * from z_buyhouse b left join z_knowledge k on b.kid=k.id "
+            + " WHERE 1=1"
+            + "<if test='b.title!=null'>"
+            + "and b.title = '${b.title}%'"
+            + "</if>"
+            +"LIMIT #{start},#{rows}"
+            + "</script>")
+    List<BuyHouse> queryBuyHouse(@Param("start")int start, @Param("rows")Integer rows, @Param("b")BuyHouse b);
+
+    @Delete("delete from z_buyhouse where id=#{ids}")
+    void deleteBuyHouse(String ids);
+    @Select("select * from z_knowledge")
+    List<Knowledge> queryKnowledge();
 }
