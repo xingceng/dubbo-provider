@@ -28,6 +28,11 @@ public class LoginServiceImpl implements LoginService {
         return list;
     }
 
+    @Override
+    public List<Tree> queryNavTreeByUserId(Integer id) {
+        return loginDao.queryNavTreeByUserId(id);
+    }
+
 
     private List<Tree> treeNode(int pid) {
         List<Tree> list = loginDao.queryNavTreeByPid(pid);

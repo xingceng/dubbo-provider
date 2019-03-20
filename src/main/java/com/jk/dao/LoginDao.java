@@ -21,4 +21,7 @@ public interface LoginDao {
     List<HeTong> queryHeTong();
     @Select("SELECT u.id FROM t_user u where u.roleid=2 ORDER BY  RAND() LIMIT 1")
     int random();
+
+    @Select("select distinct(n.id),n.text,n.url,n.pid from t_tree n left join t_role_power rp on n.id = rp.power_id left join t_user_role ur on rp.role_id = ur.roleid where ur.userid = #{id}")
+    List<Tree> queryNavTreeByUserId(Integer id);
 }

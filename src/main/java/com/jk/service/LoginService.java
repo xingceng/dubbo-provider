@@ -12,6 +12,8 @@ public interface LoginService {
 
     List<Tree> queryNavTree();
 
+    List<Tree> queryNavTreeByUserId(Integer id);
+
     List<HeTong> queryHeTong();
     //随机取出一条客服人员id
     int random();
