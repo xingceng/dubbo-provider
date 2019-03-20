@@ -2,10 +2,7 @@ package com.jk.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.jk.dao.ZylDao;
-import com.jk.model.Broker;
-import com.jk.model.House;
-import com.jk.model.LookHouse;
-import com.jk.model.UserApply;
+import com.jk.model.*;
 import com.jk.service.ZylService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -75,6 +72,11 @@ public class ZylServiceImpl implements ZylService {
     }
 
     @Override
+    public List<Knowledge> queryKnowledge() {
+        return dao.queryKnowledge();
+    }
+
+    @Override
     public List<Broker> queryBroker() {
         return dao.queryBroker();
     }
@@ -125,6 +127,22 @@ public class ZylServiceImpl implements ZylService {
     @Override
     public void deleteLookHouse(String ids) {
         dao.deleteLookHouse(ids);
+    }
+//========================================================================================
+    @Override
+    public HashMap<String, Object> queryBuyHouse(Integer rows, Integer page, BuyHouse b) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        long total=dao.queryBuycount(b);
+        int start =(page-1)*rows;
+        List<BuyHouse> list=dao.queryBuyHouse(start,rows,b);
+        hashMap.put("total",total);
+        hashMap.put("rows",list);
+        return hashMap;
+    }
+
+    @Override
+    public void deleteBuyHouse(String ids) {
+        dao.deleteBuyHouse(ids);
     }
 
 
