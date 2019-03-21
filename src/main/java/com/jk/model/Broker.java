@@ -1,10 +1,10 @@
-/**
- * Copyright (C), 2015-2019, XXX有限公司
- * FileName: Broker
- * Author:   18730
- * Date:     2019/3/18 14:50
- * Description: 经纪人信息
- */
+/*
+ * @Author 杨明瑞
+ * @Description //TODO 
+ * @Date 16:21 2019/3/21
+ * @Param
+ * @return 
+ **/
 package com.jk.model;
 
 import org.springframework.data.annotation.Transient;
