@@ -1,6 +1,7 @@
 package com.jk.dao;
 
 import com.jk.model.*;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -136,4 +137,25 @@ public interface ZhyDao {
             "0," +
             "SYSDATE())")
     void addHouse(House house);
+
+    //查询条数
+    @Select("select count(*) from t_kehu ")
+    long queryKehuCount();
+
+
+    //查询分页
+    @Select("select * from t_kehu limit #{start},#{rows}")
+    List<Kehu> queryKehuPage(@Param("start") int start, @Param("rows") Integer rows);
+
+
+    //新增客户
+    @Insert("insert into t_kehu (kehuname,kehuphone,kehucard,kehucardimg,kehuemail,kehupassword) values (#{kehuname},#{kehuphone},#{kehucard},#{kehucardimg},#{kehuemail},#{kehupassword})")
+    void addkehu(Kehu kehu);
+
+    @Delete("delete from t_kehu where kehuid=#{kehuid}")
+    void delt(Integer kehuid);
+
+
+    @Select("select * from t_circuit")
+    List<Circuit> queryAreaByPid(Integer pid);
 }

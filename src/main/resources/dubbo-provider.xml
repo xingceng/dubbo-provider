@@ -16,12 +16,10 @@
     <dubbo:protocol name="dubbo" port="20880" />
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.jk.service.LoginService" ref="myService" />
-    <dubbo:service interface="com.jk.service.ZhyService" ref="zhyService" />
+        <dubbo:service interface="com.jk.service.ZhyService" ref="zhyService" />
     <dubbo:service interface="com.jk.service.HouseRwjService" ref="rwjService" />
-    <dubbo:service interface="com.jk.service.BroService" ref="broService" />
     <!-- 和本地bean一样实现服务 -->
     <bean id="zhyService" class="com.jk.service.impl.ZhyServiceImpl" />
     <bean id="myService" class="com.jk.service.impl.LoginServiceImpl" />
     <bean id="rwjService" class="com.jk.service.impl.HouseRwjServiceImpl" />
-    <bean id="broService" class="com.jk.service.impl.BroServiceImpl" />
 </beans>

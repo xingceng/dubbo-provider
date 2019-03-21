@@ -1,10 +1,15 @@
 package com.jk.model;
 
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class House implements Serializable {
     private static final long serialVersionUID = 4109150726225906245L;
+
+
+
+
     private Integer houseid;   //房id
     private String  housename;  //房源名
     private Integer housetype; //房類型

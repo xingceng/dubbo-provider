@@ -7,9 +7,26 @@ public class Task implements Serializable {
     private Integer id;
     private Integer htid;
     private String content;
-    private Integer brokerid;
+    private Integer supportid;
     private String phone;
     private String email;
+    private String hname;
+    private String brokername;
+    public String getHname() {
+        return hname;
+    }
+
+    public void setHname(String hname) {
+        this.hname = hname;
+    }
+
+    public String getBrokername() {
+        return brokername;
+    }
+
+    public void setBrokername(String brokername) {
+        this.brokername = brokername;
+    }
 
     public Integer getId() {
         return id;
@@ -35,12 +52,12 @@ public class Task implements Serializable {
         this.content = content;
     }
 
-    public Integer getBrokerid() {
-        return brokerid;
+    public Integer getSupportid() {
+        return supportid;
     }
 
-    public void setBrokerid(Integer brokerid) {
-        this.brokerid = brokerid;
+    public void setSupportid(Integer supportid) {
+        this.supportid = supportid;
     }
 
     public String getPhone() {
@@ -52,8 +69,7 @@ public class Task implements Serializable {
     }
 
     public String getEmail() {
-        return email;
-    }
+        return email;      }
 
     public void setEmail(String email) {
         this.email = email;
