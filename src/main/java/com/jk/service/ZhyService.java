@@ -45,8 +45,6 @@ public interface ZhyService {
     //地区
     List<Circuit> queryAreaByPid(Integer pid);
 
-    String updateHead(MultipartFile file, int i);
-
 
 
 

@@ -78,7 +78,7 @@ public interface ZylDao {
     @Select("select * from t_house")
     List<House> queryHouse();
 
-    @Select("select u.id,u.username from t_user u,t_role r where u.roleid=r.id and name='经纪人'")
+    @Select("select u.id,u.username from t_user u,t_role r where u.roleid=r.id and r.id=2")
     List<User> queryUser();
 
     //申请看房  修改状态
@@ -122,7 +122,7 @@ public interface ZylDao {
 
     @Delete("delete from z_lookhouse where id=#{ids}")
     void deleteLookHouse(String ids);
-    //==============================================================
+
     @Select("<script>"
             + "select count(*) from z_buyhouse b left join z_knowledge k on b.kid=k.id "
             + " WHERE 1=1"
