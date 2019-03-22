@@ -48,7 +48,8 @@ public interface TaskDao {
             + "</script>")
     long queryMyTaskCount(@Param("userid") Integer userid,@Param("task") Task task);
     @Select("<script>"
-            + "select t.id,t.content,t.email,t.supportid,t.phone,h.housename hname from z_task t,t_house h,t_user u  where t.htid=h.houseid and u.id=t.supportid and u.roleid=2 and t.status=0"
+            + "selec" +
+            "t t.id,t.content,t.email,t.supportid,t.phone,h.housename hname from z_task t,t_house h,t_user u  where t.htid=h.houseid and u.id=t.supportid and u.roleid=2 and t.status=0"
             + " and  1=1 and u.id= #{userid}"
             + "<if test='task.phone!=null'>"
             + "and t.phone = '${task.phone}'"

@@ -77,8 +77,8 @@ public class ZylServiceImpl implements ZylService {
     }
 
     @Override
-    public List<Broker> queryBroker() {
-        return dao.queryBroker();
+    public List<User> queryUser() {
+        return dao.queryUser();
     }
 
     @Override
@@ -143,6 +143,16 @@ public class ZylServiceImpl implements ZylService {
     @Override
     public void deleteBuyHouse(String ids) {
         dao.deleteBuyHouse(ids);
+    }
+
+    @Override
+    public void updateUser(Integer id) {
+        dao.updateUser(id);
+    }
+
+    @Override
+    public List<House> queryUserApplyHouse(Integer roleid) {
+        return dao.queryUserApplyHouse(roleid);
     }
 
 

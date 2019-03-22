@@ -13,7 +13,7 @@ public class LookHouse implements Serializable {
     private Integer commit;
     private Integer brokerid;
     private String  housename;
-    private String broName;
+    private String username;
 
     public String getHousename() {
         return housename;
@@ -23,12 +23,12 @@ public class LookHouse implements Serializable {
         this.housename = housename;
     }
 
-    public String getBroName() {
-        return broName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setBroName(String broName) {
-        this.broName = broName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Integer getId() {

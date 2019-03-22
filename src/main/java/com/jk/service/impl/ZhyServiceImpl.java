@@ -3,7 +3,10 @@ package com.jk.service.impl;
 import com.jk.dao.ZhyDao;
 import com.jk.model.*;
 import com.jk.service.ZhyService;
+import com.jk.utils.OSSClientUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -15,7 +18,8 @@ public class ZhyServiceImpl implements ZhyService {
     @Resource
     private ZhyDao zhyDao;
 
-
+    @Autowired
+    private OSSClientUtil ossClient;
     //查询面积
     @Override
     public HashMap<String, Object> queryAcreage(Integer page, Integer rows) {
@@ -155,9 +159,7 @@ public class ZhyServiceImpl implements ZhyService {
 
 
     @Override
-    public List<Circuit> queryAreaByPid(int pid) {
+    public List<Circuit> queryAreaByPid(Integer pid) {
         return zhyDao.queryAreaByPid(pid);
     }
-
-
 }

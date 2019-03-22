@@ -3,6 +3,7 @@ package com.jk.service;
 import com.jk.model.Circuit;
 import com.jk.model.House;
 import com.jk.model.Kehu;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -42,7 +43,9 @@ public interface ZhyService {
     void delt(Integer kehuid);
 
     //地区
-    List<Circuit> queryAreaByPid(int pid);
+    List<Circuit> queryAreaByPid(Integer pid);
+
+    String updateHead(MultipartFile file, int i);
 
 
 
