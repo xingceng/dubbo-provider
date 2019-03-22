@@ -155,7 +155,7 @@ public class ZhyServiceImpl implements ZhyService {
 
 
     @Override
-    public List<Circuit> queryAreaByPid(Integer pid) {
+    public List<Circuit> queryAreaByPid(int pid) {
         return zhyDao.queryAreaByPid(pid);
     }
 

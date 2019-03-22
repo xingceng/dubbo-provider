@@ -18,10 +18,20 @@
     <dubbo:service interface="com.jk.service.LoginService" ref="myService" />
     <dubbo:service interface="com.jk.service.ZhyService" ref="zhyService" />
     <dubbo:service interface="com.jk.service.HouseRwjService" ref="rwjService" />
-    <dubbo:service interface="com.jk.service.UserService" ref="lcbService" />
+    <dubbo:service interface="com.jk.service.BroService" ref="broService" />
+    <dubbo:service interface="com.jk.service.HeService" ref="heService" />
+    <dubbo:service interface="com.jk.service.TaskService" ref="taskService" />
+    <dubbo:service interface="com.jk.service.UserService" ref="userService" />
+    <dubbo:service interface="com.jk.service.ZylService" ref="zylService" />
+    <dubbo:service interface="com.jk.service.LoginService" ref="loginService" />
     <!-- 和本地bean一样实现服务 -->
     <bean id="zhyService" class="com.jk.service.impl.ZhyServiceImpl" />
     <bean id="myService" class="com.jk.service.impl.LoginServiceImpl" />
     <bean id="rwjService" class="com.jk.service.impl.HouseRwjServiceImpl" />
-    <bean id="lcbService" class="com.jk.service.impl.UserServiceImpl" />
+    <bean id="broService" class="com.jk.service.impl.BroServiceImpl" />
+    <bean id="heService" class="com.jk.service.impl.HeServiceImpl" />
+    <bean id="taskService" class="com.jk.service.impl.TaskServiceImpl" />
+    <bean id="userService" class="com.jk.service.impl.UserServiceImpl" />
+    <bean id="zylService" class="com.jk.service.impl.ZylServiceImpl" />
+    <bean id="loginService" class="com.jk.service.impl.LoginServiceImpl" />
 </beans>

@@ -1,5 +1,6 @@
 package com.jk.service;
 
+import com.jk.model.HeTong;
 import com.jk.model.Tree;
 import com.jk.model.User;
 
@@ -10,4 +11,10 @@ public interface LoginService {
     User queryUserByLoginNumber(String username);
 
     List<Tree> queryNavTree();
+
+    List<Tree> queryNavTreeByUserId(Integer id);
+
+    List<HeTong> queryHeTong();
+    //随机取出一条客服人员id
+    int random();
 }
