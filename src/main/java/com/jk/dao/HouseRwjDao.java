@@ -12,14 +12,10 @@ import java.util.List;
 
 public interface HouseRwjDao {
 
-
-
     //查询面积
     @Select("select * from t_acreage ")
     List<Acreage> queryAcreage();
-
-    //查询楼层
-    @Select("select * from t_louceng ")
+        @Select("select * from t_louceng ")
     List<Louceng> queryLouCeng();
 
     //查询楼龄

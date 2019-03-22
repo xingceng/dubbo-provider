@@ -22,6 +22,7 @@ public interface ZhyDao {
     @Select("select count(*) from t_louceng ")
     long queryLoucengCount();
 
+
     //楼层分页查询
     @Select("select * from t_louceng limit #{start},#{rows}")
     List<Louceng> queryLoucengPage(@Param("start") int start, @Param("rows") Integer rows);
@@ -152,10 +153,15 @@ public interface ZhyDao {
     @Insert("insert into t_kehu (kehuname,kehuphone,kehucard,kehucardimg,kehuemail,kehupassword) values (#{kehuname},#{kehuphone},#{kehucard},#{kehucardimg},#{kehuemail},#{kehupassword})")
     void addkehu(Kehu kehu);
 
+    //删除kehu
     @Delete("delete from t_kehu where kehuid=#{kehuid}")
     void delt(Integer kehuid);
 
-
+    //查询地区
     @Select("select * from t_circuit")
     List<Circuit> queryAreaByPid(Integer pid);
+
+
+
+
 }
