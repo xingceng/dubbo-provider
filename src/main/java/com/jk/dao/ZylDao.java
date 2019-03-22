@@ -145,7 +145,7 @@ public interface ZylDao {
     void deleteBuyHouse(String ids);
     @Select("select * from z_knowledge")
     List<Knowledge> queryKnowledge();
-    @Update("update z_userapply set static=1 where id=#{id}")
+    @Update("update z_userapply set status=1 where id=#{id}")
     void updateUser(Integer id);
     @Select("select h1.houseid,h1.housename from t_house h1,(select u.hid from z_userapply u where  u.hid not in(select h.hid from z_hetong h where h.status != 1) and u.brokerid=#{roleid} and u.status=1)h2 where h1.houseid=h2.hid")
     List<House> queryUserApplyHouse(Integer roleid);
