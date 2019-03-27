@@ -124,6 +124,8 @@ public interface ZhyDao {
             "houseloulingid," +
             "housezhuangxiuid," +
             "housestuts,housetime) VALUES(#{housename}," +
+            "#{houseimg}," +
+            "#{housexiangqing}," +
             "#{housetype}," +
             "#{housecircuitid}," +
             "#{housepriceid}," +
@@ -156,6 +158,6 @@ public interface ZhyDao {
     void delt(Integer kehuid);
 
 
-    @Select("select * from t_circuit")
+    @Select("select * from t_circuit where pid=#{pid}")
     List<Circuit> queryAreaByPid(Integer pid);
 }

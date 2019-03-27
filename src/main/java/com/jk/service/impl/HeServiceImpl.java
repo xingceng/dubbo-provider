@@ -41,4 +41,13 @@ public class HeServiceImpl implements HeService {
     public void delheTong(Integer id) {
         heDao.delheTong(id);
     }
+
+    /**
+     * 新增合同
+     * @param h
+     */
+    @Override
+    public void addHeTong(HeTong h) {
+        heDao.addHeTong(h);
+    }
 }

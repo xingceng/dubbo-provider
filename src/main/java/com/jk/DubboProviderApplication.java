@@ -14,3 +14,4 @@ public class DubboProviderApplication {
         SpringApplication.run(DubboProviderApplication.class, args);
     }
 }
+
