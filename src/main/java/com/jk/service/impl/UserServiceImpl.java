@@ -74,5 +74,8 @@ public class UserServiceImpl implements UserService {
         userDao.savePowerMenu(menu);
     }
 
-
+    @Override
+    public void guanZhu(Integer houseid, Integer userid) {
+        userDao.guanZhu(houseid,userid);
+    }
 }

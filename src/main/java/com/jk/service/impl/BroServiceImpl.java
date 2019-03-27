@@ -10,6 +10,8 @@ package com.jk.service.impl;
 import com.jk.dao.BroDao;
 import com.jk.model.Broker;
 import com.jk.model.Circuit;
+import com.jk.model.House;
+import com.jk.model.Store;
 import com.jk.service.BroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,5 +50,31 @@ public class BroServiceImpl implements BroService {
     @Override
     public List<Circuit> queryCirByPid(int pid) {
         return broDao.queryCirByPid(pid);
+    }
+
+    @Override
+    public List<House> queryHouse(Integer housecircuitid) {
+        return broDao.queryHouse(housecircuitid);
+    }
+
+    @Override
+    public HashMap<String, Object> queryMyBro(int page, int rows, Integer userid) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        long total = broDao.queryMyBroTotal(userid);
+        int start = (page - 1) * rows;
+        List<Broker> list = broDao.queryMyBroPage(start,rows,userid);
+        hashMap.put("total",total);
+        hashMap.put("rows",list);
+        return hashMap;
+    }
+
+    @Override
+    public List<Store> queryStore(Integer cityid) {
+        return broDao.queryStore(cityid);
+    }
+
+    @Override
+    public List<Broker> queryBroInfo(Integer id) {
+        return broDao.queryBroInfo(id);
     }
 }

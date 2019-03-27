@@ -38,4 +38,7 @@ public interface UserDao {
 
     @Insert("insert into t_power_menu(name,url,powerid) values(#{name},#{url},#{powerId})")
     void savePowerMenu(PowerMenu menu);
+
+    @Insert("insert into h_guanzhu(userid,houseid) value(#{userid},#{houseid})")
+    void guanZhu(@Param("houseid") Integer houseid,@Param("userid") Integer userid);
 }
